@@ -1,0 +1,69 @@
+<diagram program="umletino" version="15.1"><zoom_level>13</zoom_level><element><id>UMLPackage</id><coordinates><x>26</x><y>13</y><w>1196</w><h>702</h></coordinates><panel_attributes>recetorium
+--
+bg=#f8ffb5</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLPackage</id><coordinates><x>299</x><y>208</y><w>910</w><h>494</h></coordinates><panel_attributes>recetorium.model
+--
+bg=#f8ffb5</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLPackage</id><coordinates><x>403</x><y>52</y><w>234</w><h>143</h></coordinates><panel_attributes>recetorium.controller
+--
+bg=#f8ffb5</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLPackage</id><coordinates><x>39</x><y>182</y><w>234</w><h>286</h></coordinates><panel_attributes>recetorium.view
+--
+bg=#f8ffb5</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLClass</id><coordinates><x>39</x><y>52</y><w>182</w><h>104</h></coordinates><panel_attributes>Main
+--
+--
+_+main(...): void_
+--</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLClass</id><coordinates><x>52</x><y>221</y><w>208</w><h>221</h></coordinates><panel_attributes>Vista
+--
+- input: Scanner
+--
++ int mostrarMenu()
++ Ingrediente leerIngrediente()
++ int leerId()
++ int leerEntero(String msg)
++ void mostrarIngredientes(List&lt;Ingrediente&gt; ingredientes)
++ void mostrarIngrediente(Ingrediente ingrediente)
++ void mostrarLinea(String msg)
++ void mostrarError(String msg)</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLClass</id><coordinates><x>416</x><y>91</y><w>208</w><h>91</h></coordinates><panel_attributes>IngredienteController
+--
+--
++ iniciar()
+- menu()</panel_attributes><additional_attributes></additional_attributes></element><element><id>Relation</id><coordinates><x>234</x><y>104</y><w>208</w><h>143</h></coordinates><panel_attributes>lt=&lt;-
+m1=1
+- vista</panel_attributes><additional_attributes>10;90;10;20;140;20</additional_attributes></element><element><id>UMLClass</id><coordinates><x>325</x><y>260</y><w>143</w><h>143</h></coordinates><panel_attributes>Ingrediente
+--
+- id: int
+- nombre: String
+otros atributos...
+--
++ getters/setters
++ toString(): String</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLPackage</id><coordinates><x>494</x><y>247</y><w>624</w><h>208</h></coordinates><panel_attributes>recetorium.model.service
+--
+bg=#f8ffb5</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLPackage</id><coordinates><x>494</x><y>468</y><w>702</w><h>221</h></coordinates><panel_attributes>recetorium.model.repository
+--
+bg=#f8ffb5</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLClass</id><coordinates><x>507</x><y>507</y><w>299</w><h>169</h></coordinates><panel_attributes>&lt;&lt;interface&gt;&gt;
+/IngredienteRepository/
+--
+--
+/List&lt;Ingrediente&gt; findAll();/
+/Ingrediente findById(int id);/
+/Ingrediente save(Ingrediente ingrediente);/
+/void deleteById(int id);/
+/boolean existsById(int id);/</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLClass</id><coordinates><x>884</x><y>507</y><w>299</w><h>156</h></coordinates><panel_attributes>IngredienteRepositoryBinario
+--
+- file: File
+--
+List&lt;Ingrediente&gt; findAll();
+Ingrediente findById(int id);
+Ingrediente save(Ingrediente ingrediente);
+void deleteById(int id);
+boolean existsById(int id);</panel_attributes><additional_attributes></additional_attributes></element><element><id>Relation</id><coordinates><x>793</x><y>585</y><w>117</w><h>39</h></coordinates><panel_attributes>lt=&lt;&lt;.</panel_attributes><additional_attributes>10;10;70;10</additional_attributes></element><element><id>UMLClass</id><coordinates><x>507</x><y>286</y><w>416</w><h>156</h></coordinates><panel_attributes>IngredienteService
+--
+--
++ void setRepository(IngredienteRepository repository)
++ List&lt;Ingrediente&gt; listar()
++ Ingrediente buscar(int id)
++ Ingrediente guardar(Ingrediente ingrediente)
++ void eliminar(int id)
++ boolean existe(int id)</panel_attributes><additional_attributes></additional_attributes></element><element><id>Relation</id><coordinates><x>611</x><y>117</y><w>273</w><h>195</h></coordinates><panel_attributes>lt=&lt;-
+m1=1
+- ingredienteService</panel_attributes><additional_attributes>160;130;160;20;10;20</additional_attributes></element><element><id>Relation</id><coordinates><x>312</x><y>416</y><w>221</w><h>234</h></coordinates><panel_attributes>lt=&lt;-
+m1=1
+- ingredienteRepository</panel_attributes><additional_attributes>150;150;10;150;10;10;150;10</additional_attributes></element></diagram>
