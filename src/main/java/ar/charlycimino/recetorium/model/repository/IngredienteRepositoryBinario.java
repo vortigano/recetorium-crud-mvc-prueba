@@ -73,11 +73,15 @@ public class IngredienteRepositoryBinario implements IngredienteRepository {
     @Override
     public Ingrediente save(Ingrediente ingrediente) {
         if (existsById(ingrediente.getId())) {
-            throw new RuntimeException("Ya existe ingrediente con id " + ingrediente.getId());
+          //  throw new RuntimeException("Ya existe ingrediente con id " + ingrediente.getId());
+          updateById(ingrediente.getId(), ingrediente);
         }
-        List<Ingrediente> ingredientes = loadFromFile();
-        ingredientes.add(ingrediente);
-        saveToFile(ingredientes);
+        else
+        {
+          List<Ingrediente> ingredientes = loadFromFile();
+          ingredientes.add(ingrediente);
+          saveToFile(ingredientes);
+        }
         return ingrediente;
     }
     
@@ -94,5 +98,17 @@ public class IngredienteRepositoryBinario implements IngredienteRepository {
     @Override
     public boolean existsById(int id) {
         return findById(id) != null;
+    }
+    
+    private Ingrediente updateById(int id, Ingrediente ingrediente)
+    {
+      Ingrediente encontrado = findById(id);
+      if (encontrado != null) {
+        List<Ingrediente> ingredientes = loadFromFile();
+        int indice = ingredientes.indexOf(encontrado);
+        ingredientes.set(indice, ingrediente);
+        saveToFile(ingredientes);
+      }
+      return encontrado;
     }
 }
