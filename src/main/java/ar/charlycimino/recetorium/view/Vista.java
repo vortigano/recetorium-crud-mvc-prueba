@@ -22,9 +22,10 @@ public class Vista {
         System.out.println("\n--- Menú Ingredientes ---");
         System.out.println("1. Crear ingrediente");
         System.out.println("2. Ver ingrediente por ID");
-        System.out.println("3. Listar ingredientes");
-        System.out.println("4. Eliminar ingrediente");
-        System.out.println("5. Salir");
+        System.out.println("3. Actualizar ingrediente por ID");
+        System.out.println("4. Listar ingredientes");
+        System.out.println("5. Eliminar ingrediente");
+        System.out.println("6. Salir");
         return leerEntero("Opción: ");
     }
 
@@ -37,6 +38,15 @@ public class Vista {
         System.out.print("Color: ");
         String color = input.nextLine();
         return new Ingrediente(id, nombre, foto, color);
+    }
+    
+    public void actualizarIngrediente(Ingrediente ing) {
+      System.out.println("Nombre: " + ing.getNombre());
+      ing.setNombre(input.nextLine());
+      System.out.println("Foto (ruta/nombre): " + ing.getFoto());
+      ing.setFoto(input.nextLine());
+      System.out.println("Color: " + ing.getColor());
+      ing.setColor(input.nextLine());
     }
     
     public int leerId() {

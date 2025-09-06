@@ -38,8 +38,16 @@ public class IngredienteController {
                 switch (opcion) {
                     case 1: {
                         Ingrediente ing = vista.leerIngrediente();
-                        ingredienteService.guardar(ing);
-                        vista.mostrarLinea("Ingrediente creado");
+                        if(!ingredienteService.existe(ing.getId()))
+                        {
+                          ingredienteService.guardar(ing);
+                          vista.mostrarLinea("Ingrediente creado");
+                        }
+                        else
+                        {
+                          throw new RuntimeException("Ya existe ingrediente con id " + ing.getId());
+                        }
+                        
                         break;
                     }
                     case 2: {
@@ -52,16 +60,29 @@ public class IngredienteController {
                         }
                         break;
                     }
-                    case 3:
+                    case 3: {
+                      int id = vista.leerId();
+                      Ingrediente ing = ingredienteService.buscar(id);
+                      if (ing != null) {
+                        vista.mostrarIngrediente(ing);
+                        vista.actualizarIngrediente(ing);
+                        ingredienteService.guardar(ing);
+                      } else {
+                          vista.mostrarLinea("Ingrediente no encontrado");
+                      }
+                      
+                      break;
+                    }
+                    case 4:
                         vista.mostrarIngredientes(ingredienteService.listar());
                         break;
-                    case 4: {
+                    case 5: {
                         int id = vista.leerId();
                         ingredienteService.eliminar(id);
                         vista.mostrarLinea("Ingrediente eliminado");
                         break;
                     }
-                    case 5:
+                    case 6:
                         salir = true;
                         break;
                     default:
