@@ -61,6 +61,10 @@ public class Ingrediente implements Serializable {
     @Override
     public int hashCode() {
         int hash = 3;
+        hash = 47 * hash + this.id;
+        hash = 47 * hash + Objects.hashCode(this.nombre);
+        hash = 47 * hash + Objects.hashCode(this.foto);
+        hash = 47 * hash + Objects.hashCode(this.color);
         return hash;
     }
 
@@ -94,5 +98,6 @@ public class Ingrediente implements Serializable {
     public String toString() {
         return "Ingrediente{" + "id=" + id + ", nombre=" + nombre + ", foto=" + foto + ", color=" + color + '}';
     }
+
     
 }
