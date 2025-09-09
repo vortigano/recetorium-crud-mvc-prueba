@@ -7,6 +7,7 @@ package ar.charlycimino.recetorium;
 import ar.charlycimino.recetorium.controller.IngredienteController;
 import ar.charlycimino.recetorium.model.repository.IngredienteRepository;
 import ar.charlycimino.recetorium.model.repository.IngredienteRepositoryBinario;
+import ar.charlycimino.recetorium.model.repository.IngredienteRepositoryJdbc;
 import ar.charlycimino.recetorium.model.service.IngredienteService;
 import ar.charlycimino.recetorium.view.Vista;
 
@@ -17,7 +18,8 @@ import ar.charlycimino.recetorium.view.Vista;
 public class Main {
 
     public static void main(String[] args) {
-        IngredienteRepository repo = new IngredienteRepositoryBinario();
+        //IngredienteRepository repo = new IngredienteRepositoryBinario();
+        IngredienteRepository repo = new IngredienteRepositoryJdbc();
         IngredienteService service = new IngredienteService(repo);
         Vista vista = new Vista();
         IngredienteController controller = new IngredienteController(service, vista);
