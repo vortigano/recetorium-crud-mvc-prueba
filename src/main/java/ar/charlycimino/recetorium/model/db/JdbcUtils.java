@@ -18,7 +18,7 @@ public final class JdbcUtils {
     private static final String PROPS = "db.properties";
     private static String url;
     private static String user;
-    private static String password;
+    private static String password; // esta es la password
 
     static {
         try (InputStream is = JdbcUtils.class.getClassLoader().getResourceAsStream(PROPS)) {
