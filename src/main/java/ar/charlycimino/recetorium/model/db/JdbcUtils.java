@@ -15,7 +15,7 @@ import java.util.Properties;
  */
 public final class JdbcUtils {
 
-    private static final String PROPS = "db.properties";
+    private static final String PROPS = "db.properties"; // prueba
     private static String url;
     private static String user;
     private static String password;
