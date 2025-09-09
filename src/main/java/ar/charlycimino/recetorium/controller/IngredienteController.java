@@ -2,6 +2,7 @@ package ar.charlycimino.recetorium.controller;
 
 import ar.charlycimino.recetorium.model.Ingrediente;
 import ar.charlycimino.recetorium.model.repository.IngredienteRepositoryBinario;
+import ar.charlycimino.recetorium.model.repository.IngredienteRepositoryJdbc;
 import ar.charlycimino.recetorium.model.service.IngredienteService;
 import ar.charlycimino.recetorium.view.Vista;
 
@@ -23,7 +24,7 @@ public class IngredienteController {
 
     public void iniciar() {
         try {
-            ingredienteService.setRepository(new IngredienteRepositoryBinario());
+            ingredienteService.setRepository(new IngredienteRepositoryJdbc());
             menu();
         } catch (Exception e) {
             vista.mostrarError(e.getMessage());

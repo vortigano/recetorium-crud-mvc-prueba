@@ -20,6 +20,10 @@ public final class JdbcUtils {
     private static String user;
     private static String password;
 
+    /*
+    Es un bloque de inicialización estático.
+    Se ejecuta una sola vez cuando la clase se carga en memoria por primera vez (cuando la JVM hace el class loading).
+    */
     static {
         try (InputStream is = JdbcUtils.class.getClassLoader().getResourceAsStream(PROPS)) {
             Properties p = new Properties();
@@ -40,7 +44,7 @@ public final class JdbcUtils {
 
     /**
      * Devuelve una nueva conexión. El llamador debe cerrarla (try-with-resources).
-     * En clase: explicar que en producción preferimos un DataSource con pool.
+     * Explicar que en producción preferimos un DataSource con pool.
      */
     public static Connection getConnection() throws Exception {
         return DriverManager.getConnection(url, user, password);
